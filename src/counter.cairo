@@ -42,6 +42,7 @@ mod Counter {
             if is_active {
                 let current_counter = self.counter.read();
                 self.counter.write(current_counter + 1);
+		self.emit(CounterIncreased { counter: self.counter.read() })
             }
         }
     }
