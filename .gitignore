@@ -1,4 +1,5 @@
 target
+src/prev_solution.cairo
 .env
 node_modules
 .snfoundry_cache
