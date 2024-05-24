@@ -11,11 +11,12 @@ mod Counter {
     use starknet::{ContractAddress};
     use super::ICounter;
 
-    #[storage]
+ #[storage]
     struct Storage {
         counter: u32,
+        kill_switch: IKillSwitchDispatcher,
     }
-
+   
     #[constructor]
     fn constructor(ref self: ContractState, initial_counter: u32) {
         self.counter.write(initial_counter);
@@ -26,9 +27,9 @@ mod Counter {
         fn get_counter(self: @ContractState) -> u32 {
             self.counter.read()
         }
-        fn increase_counter(ref self: ContractState) {
+	fn increase_counter(ref self: ContractState) {
             let current_counter = self.counter.read();
             self.counter.write(current_counter + 1);
         }
-    }
+	}
 }
