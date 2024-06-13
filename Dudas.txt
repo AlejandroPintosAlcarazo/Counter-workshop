@@ -1,0 +1,37 @@
+- ¿Qué es el lib.cairos?
+- el orden de los archivos importa, en el caso de tener varios como se especifica.
+- entrypoints : de codigo no blockchain y de codigo blockchain
+- nodos locales
+- remix en local
+- sandbox para programar en condiciones
+declare : 0x01d2789a6a1fa1b780bb20f54cfc2b2d8e478c9bac63eff80d6b9789b049fbfc
+
+mi smart contract: 0x05e64f63574087958c0918da2a3845fd64a1e0c6607bc1daa4705c573db01373
+
+DEPLOY:
+
+-paso0= asegurarse que tienes la wallet deployeada(no ser palomo)
+-Paso1= tener activado ~/.starkling-wallet     mkdir -p ~/.starkli-wallets/deployer
+
+paso2= para crear my_account.json "starknet account fetch ... --rpc https://starknet-sepolia.public.blastapi.io
+"
+-paso3= "generar un permiso de firma     starkli signer keystore from-key ~/.starkli-wallets/deployer/my_keystore_1.json
+    Enter private key:
+    Enter password:
+"
+
+paso4= variables de enetorno/variable.sh     export STARKNET_ACCOUNT=~/.starkli-wallets/deployer/my_account_1.json
+    export STARKNET_KEYSTORE=~/.starkli-wallets/deployer/my_keystore_1.json
+    export STARKNET_RPC=https://starknet-sepolia.public.blastapi.io/rpc/v0_7
+
+
+paso5= GENERAR UN TOKEN(revisar token, ser mas preciso" DE MI CONTRATO. starkli declare "ACCOUNT_ID" "TARGET ej:counter_Counter.contract_class.json  ./"
+
+paso6= starkli deploy "MI WALLET" "SMARTCONTRACT PARAMS" "TOKEN DEL DECLARE" "--max-fee-raw 40018281450"
+
+
+COLARIO: mirar starkscan para hacer pruebas con los contratos, escribir leer y comprobar todo.
+
+https://github.com/Quantum3-Labs/scaffold-stark-2
+
+https://github.com/Quantum3-Labs/speedrunstark

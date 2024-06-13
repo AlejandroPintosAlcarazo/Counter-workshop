@@ -1,0 +1,5 @@
+.env
+target
+.snfoundry_cache
+src/prev_solution
+.DNS
